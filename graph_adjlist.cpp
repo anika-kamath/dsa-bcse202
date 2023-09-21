@@ -3,13 +3,14 @@
 #include<unordered_map>
 #include<list>
 using namespace std;
+template <typename T>
 
 class graph{
 public:
-    unordered_map< int,list<int> > adj;
+    unordered_map< T,list<T> > adj;
 
     //make an edge from u to v
-    void addEdge(int u,int v,bool direction){
+    void addEdge(T u,T v,bool direction){
         //direction = 0 means undirected graph
         adj[u].push_back(v);
 
@@ -19,6 +20,7 @@ public:
     }
 
     void printAdjList(){
+        cout<<"Adjacency List for Graph: "<<endl;
         for(auto i:adj){
             cout<<i.first<<" -> ";
             for(auto j:i.second){
@@ -38,7 +40,7 @@ int main(){
     cout<<"Enter number of edges: ";
     cin>>m;
 
-    graph g;
+    graph<int> g;
 
     for(int i=0;i<m;i++){
         int u,v;
